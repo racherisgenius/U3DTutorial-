@@ -10,6 +10,7 @@ b站地址：https://www.bilibili.com/video/BV1C7411i7Rg?p=6
 ### P5-登录界面UI制作
    * [P5 Login代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P5Login.cs)
    * [P5 UserData代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P05UserData)
+   
    * P5. 登录界面UI制作笔记
    ```
    1. 建立场景Login
@@ -49,4 +50,27 @@ b站地址：https://www.bilibili.com/video/BV1C7411i7Rg?p=6
     【SelectRole】：RoleItem，SelectRole
     【Login】：Login
     因为后期需要动态生成角色，所以场景中不需要添加RoleItem，可以直接将RoleItem删除
-    
+  ```
+  ### P6-选人界面制作 + 单例模式 + 扩展类的成员函数
+   * [P6 SelectRole代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P06SelectRole.cs)
+   * [P6 Singleton代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P06Singleton.cs)
+   * [P6 UserData代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P06UserData.cs)
+   * [P6 UnityExtern代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P06UnityEntern.cs)
+   
+   * P5. 选人界面制作 + 单例模式 + 扩展类的成员函数
+    ```
+    【P6】选人界面制作 + 单例模式 + 扩展类的成员函数
+1. 创建SelectRole脚本
+    挂在UISystem下的SelectRole下
+2. SelecrRole脚本
+    找到rolelist节点
+    通过加载resources目录下的组件，遍历userdata的list动态生成角色
+        把UI文件夹放入resources文件夹下
+3. 为角色排版
+    在Content内添加Grid Layout Group，修改cell size  198 * 68， spacing 6.7
+4. 单例模式
+    建立Common文件夹，添加一个单例脚本
+5. 扩展类的成员函数
+    建立Extern文件夹，添加一个扩展类脚本
+       ```
+
