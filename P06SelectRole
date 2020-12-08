@@ -23,7 +23,7 @@ public class SelectRole: MonoBehaviour
 
         int i = 0; //便于后面的onToggleValueChanged
         //初始化角色列表:利用for循环从userdata中获取数据
-        foreach (var roleInfo in UserData.AllRole)
+        foreach (var roleInfo in UserData.instance.AllRole)
         {
             //获取一个资源，再通过GameObject.Instantiate把他实例化出来
             var roleItem = GameObject.Instantiate(Resources.Load<GameObject>
