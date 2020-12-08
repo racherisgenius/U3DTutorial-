@@ -9,7 +9,7 @@ b站地址：https://www.bilibili.com/video/BV1C7411i7Rg?p=6
 ## 目录
 ### P5-登录界面UI制作
    * [P5 Login代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P5Login.cs)
-   * [P5 UserData代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P05UserData)
+   * [P5 UserData代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P05UserData.cs)
    
    * P5. 登录界面UI制作笔记
    ```
@@ -57,9 +57,8 @@ b站地址：https://www.bilibili.com/video/BV1C7411i7Rg?p=6
    * [P6 UserData代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P06UserData.cs)
    * [P6 UnityExtern代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P06UnityEntern.cs)
    
-   * P5. 选人界面制作 + 单例模式 + 扩展类的成员函数
-    ```
-    【P6】选人界面制作 + 单例模式 + 扩展类的成员函数
+   * P6. 选人界面制作 + 单例模式 + 扩展类的成员函数
+  ```
 1. 创建SelectRole脚本
     挂在UISystem下的SelectRole下
 2. SelecrRole脚本
@@ -72,5 +71,44 @@ b站地址：https://www.bilibili.com/video/BV1C7411i7Rg?p=6
     建立Common文件夹，添加一个单例脚本
 5. 扩展类的成员函数
     建立Extern文件夹，添加一个扩展类脚本
-       ```
-
+```
+   ### P7- 游戏启动流程SetUp
+   * [P7 GameMgr代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P07GameMgr.cs)
+   * [P7 TouchRotate代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P07TouchRotate.cs)
+   * [P7 UserData代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P07UserData.cs)
+   * [P7 UnityExtern代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P07TouchRotate.cs)
+   * [P7 SetUp代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P07SetUp.cs)
+   * [P7 SelectRole代码](https://github.com/racherisgenius/U3DTutorial-/blob/main/P07SelectRole.cs)
+   * P7. 游戏启动流程SetUp
+   ```
+   //*游戏启动前：启动，闪屏（logo)， 检查更新， 更新（重启），公告，登录 ，
+//所以p7中制作的是setup界面：闪屏（logo)， 检查更新， 更新（重启），公告
+1. 创建SetUp Scene
+    删除Hierarchy中所有的东西
+    创建一个空物体，命名为【SetUp】
+2. 创建新脚本SetUp.cs
+    把SetUp脚本挂上SetUp物件上
+    让游戏启动流程的逻辑通过一个脚本挂在一个物件上完成
+3. 创建一个Logic模块-放游戏主逻辑
+    为Logic模块添加新的类GameMgr.cs
+4. 打开SelectRole场景
+    【老师思路：把模型塞到一个场景里在找个模型照，然后让SelectRole中的摄像机和模型场景中的摄像机叠加】
+    先把背景删除
+    创建一个空物件，命名【ModelStudio】，用来放置模型
+    在模型里面，创建一个摄像机，用来照射模型
+    复制Prefab中模型路径，更新UserData的代码
+    调整摄像机和模型的照射关系，创建一个空物件，命名【ModelPlace】
+5. 将模型拖入ModelPlace层级下（Rotation-y轴180度可以改变模型的正反面）
+    在ModelStudio下创建一个sprite和一个Directional Light（放在ModelStudio外部）
+    调整sprite大小，命名【bg】并放在ModelPlace-Camera层级下
+    删除ModelPlace，因为后期会动态加载出
+    把ModelStudio拖入Resources-UI-SelectRole，变成一个预设体
+    删除ModelStudio，后期动态加载
+6. 更新 SelectRole代码
+    创建 处理模型摄影部分
+    创建 扩展函数
+7. 给模型加个旋转
+    在SelectRole下创建一个Image组件，来检测滑动，命名【TouchRotate】
+    创建一个TouchRotate脚本挂给TouchRotate物件
+   
+   ```
