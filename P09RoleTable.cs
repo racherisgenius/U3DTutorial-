@@ -58,3 +58,22 @@ public class RoleTable : Singleton<RoleTable>
 
     }
 
+   /// <summary>
+   /// 获取表格数据
+   /// </summary>
+   /// <value></value>
+    public RoleDatabase this[int index]
+    {
+        get
+        {
+             RoleDatabase db;
+            _cache.TryGetValue(index, out db);
+            //把取db成功不成功交给外面判断
+             return db;
+        }
+    }
+    public Dictionary<int, RoleDatabase> GetAll()
+    {
+        return _cache;
+    }
+}
